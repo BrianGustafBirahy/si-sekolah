@@ -38,12 +38,16 @@ export default function Prestasi() {
         {/* =========================
             JUDUL PRESTASI
         ========================== */}
-        <h1
-          className="text-4xl sm:text-5xl font-extrabold mb-14 text-center text-blue-700 relative inline-block mx-auto after:content-[''] after:block after:w-16 after:h-1 after:bg-blue-500 after:mx-auto after:mt-2 hover:after:w-28 after:transition-all after:duration-300"
-          data-aos="fade-down"
-        >
-          Prestasi
-        </h1>
+        <div className="text-center md:text-left">
+          <h1
+            className="text-4xl sm:text-5xl font-extrabold mb-14 text-blue-700 relative inline-block 
+            after:content-[''] after:block after:w-16 after:h-1 after:bg-blue-500 after:mt-2 after:mx-auto 
+            hover:after:w-28 after:transition-all after:duration-300"
+            data-aos="fade-down"
+          >
+            Prestasi
+          </h1>
+        </div>
 
         {/* =========================
             LIST PRESTASI
