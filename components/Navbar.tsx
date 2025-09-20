@@ -15,7 +15,7 @@ export default function Navbar() {
   const menus = [
     { name: "Beranda", href: "/" },
     {
-      name: "Profil",
+      name: "PROFIL",
       items: [
         { name: "Profil Sekolah", href: "/profil/profil-sekolah" },
         { name: "Struktur Organisasi", href: "/profil/struktur" },
@@ -24,7 +24,7 @@ export default function Navbar() {
       ],
     },
     {
-      name: "Siswa",
+      name: "SISWA",
       items: [
         { name: "OSIS", href: "/osis" },
         { name: "Jurusan", href: "/jurusan" },
@@ -36,7 +36,6 @@ export default function Navbar() {
     { name: "Alumni", href: "/alumni" },
   ];
 
-  // Klik luar untuk tutup dropdown (desktop)
   useEffect(() => {
     const handleDocClick = (e: MouseEvent) => {
       if (!navRef.current) return;
@@ -50,10 +49,9 @@ export default function Navbar() {
     };
   }, []);
 
-  // Scroll detection
   useEffect(() => {
     if (pathname !== "/") {
-      setScrolled(true); // di halaman lain, langsung putih
+      setScrolled(true);
       return;
     }
 
@@ -75,7 +73,6 @@ export default function Navbar() {
     }, 200);
   };
 
-  // ====== menentukan style background ======
   const navbarStyle =
     scrolled || pathname !== "/" || isOpen
       ? "bg-white text-gray-900 shadow-md border-b"
@@ -86,13 +83,17 @@ export default function Navbar() {
       ref={navRef}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navbarStyle}`}
     >
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <Link href="/" className="text-xl font-bold">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
+        {/* Logo / Brand */}
+        <Link
+          href="/"
+          className="text-xl font-extrabold tracking-wide whitespace-nowrap"
+        >
           SMAN 1 MANOKWARI
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 items-center">
+        <div className="hidden md:flex space-x-12 items-center text-base font-semibold uppercase tracking-wide">
           {menus.map((menu) =>
             menu.items ? (
               <div
@@ -102,22 +103,22 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className={`flex items-center gap-1 ${
+                  className={`flex items-center gap-1 pb-1 border-b-2 border-transparent transition-all duration-200 ${
                     scrolled || pathname !== "/" || isOpen
-                      ? "hover:text-gray-600"
-                      : "hover:text-gray-200"
+                      ? "hover:text-gray-700 hover:border-gray-400"
+                      : "hover:text-gray-200 hover:border-gray-200"
                   }`}
                 >
                   {menu.name} ▾
                 </button>
                 <div
-                  className={`absolute left-0 mt-2 w-56 rounded-lg shadow-lg transition-all duration-200 overflow-hidden ${
+                  className={`absolute left-0 mt-3 w-56 rounded-lg shadow-lg transition-all duration-200 overflow-hidden ${
                     openDropdown === menu.name
                       ? "opacity-100 translate-y-0 pointer-events-auto"
                       : "opacity-0 -translate-y-2 pointer-events-none"
                   }`}
                 >
-                  <div className="bg-white text-gray-800 rounded-lg shadow-md">
+                  <div className="bg-white text-gray-800 rounded-lg shadow-md normal-case">
                     {menu.items.map((sub, idx) => (
                       <Link
                         key={sub.name}
@@ -138,10 +139,10 @@ export default function Navbar() {
               <Link
                 key={menu.name}
                 href={menu.href!}
-                className={`${
+                className={`pb-1 border-b-2 border-transparent transition-all duration-200 ${
                   scrolled || pathname !== "/" || isOpen
-                    ? "hover:text-gray-600"
-                    : "hover:text-gray-200"
+                    ? "hover:text-gray-700 hover:border-gray-400"
+                    : "hover:text-gray-200 hover:border-gray-200"
                 }`}
               >
                 {menu.name}
@@ -150,9 +151,9 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Tombol Mobile */}
+        {/* Mobile Button */}
         <button
-          className={`md:hidden ${
+          className={`md:hidden text-2xl ${
             scrolled || pathname !== "/" || isOpen
               ? "text-gray-900"
               : "text-white"
@@ -170,7 +171,7 @@ export default function Navbar() {
           isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
         } ${isOpen ? "bg-white text-gray-900" : "bg-transparent text-white"}`}
       >
-        <div className="flex flex-col space-y-2 p-4">
+        <div className="flex flex-col space-y-2 p-5 text-sm font-semibold uppercase tracking-wide">
           {menus.map((menu) =>
             menu.items ? (
               <div key={menu.name} className="flex flex-col">
@@ -198,7 +199,7 @@ export default function Navbar() {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="ml-4 flex flex-col space-y-1 py-2 rounded-lg shadow-md bg-white text-gray-900">
+                  <div className="ml-4 flex flex-col space-y-1 py-2 rounded-lg shadow-md bg-white text-gray-900 text-xs normal-case">
                     {menu.items.map((sub, idx) => (
                       <Link
                         key={sub.name}
