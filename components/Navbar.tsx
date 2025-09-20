@@ -75,17 +75,16 @@ export default function Navbar() {
     }, 200);
   };
 
+  // ====== menentukan style background ======
+  const navbarStyle =
+    scrolled || pathname !== "/" || isOpen
+      ? "bg-white text-gray-900 shadow-md border-b"
+      : "bg-transparent text-white";
+
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
-        ${
-          scrolled
-            ? "bg-white text-gray-900 shadow-md border-b"
-            : pathname === "/"
-            ? "bg-transparent text-white"
-            : "bg-white text-gray-900 shadow-md border-b"
-        }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navbarStyle}`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         <Link href="/" className="text-xl font-bold">
@@ -104,7 +103,7 @@ export default function Navbar() {
               >
                 <button
                   className={`flex items-center gap-1 ${
-                    scrolled || pathname !== "/"
+                    scrolled || pathname !== "/" || isOpen
                       ? "hover:text-gray-600"
                       : "hover:text-gray-200"
                   }`}
@@ -140,7 +139,7 @@ export default function Navbar() {
                 key={menu.name}
                 href={menu.href!}
                 className={`${
-                  scrolled || pathname !== "/"
+                  scrolled || pathname !== "/" || isOpen
                     ? "hover:text-gray-600"
                     : "hover:text-gray-200"
                 }`}
@@ -154,7 +153,9 @@ export default function Navbar() {
         {/* Tombol Mobile */}
         <button
           className={`md:hidden ${
-            scrolled || pathname !== "/" ? "text-gray-900" : "text-white"
+            scrolled || pathname !== "/" || isOpen
+              ? "text-gray-900"
+              : "text-white"
           }`}
           onClick={() => setIsOpen((s) => !s)}
           aria-label="Toggle Menu"
@@ -167,11 +168,7 @@ export default function Navbar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-        } ${
-          scrolled || pathname !== "/"
-            ? "bg-white text-gray-900"
-            : "bg-transparent text-white"
-        }`}
+        } ${isOpen ? "bg-white text-gray-900" : "bg-transparent text-white"}`}
       >
         <div className="flex flex-col space-y-2 p-4">
           {menus.map((menu) =>
@@ -201,13 +198,7 @@ export default function Navbar() {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div
-                    className={`ml-4 flex flex-col space-y-1 py-2 rounded-lg shadow-md ${
-                      scrolled || pathname !== "/"
-                        ? "bg-white text-gray-900"
-                        : "bg-gray-800/70 text-white"
-                    }`}
-                  >
+                  <div className="ml-4 flex flex-col space-y-1 py-2 rounded-lg shadow-md bg-white text-gray-900">
                     {menu.items.map((sub, idx) => (
                       <Link
                         key={sub.name}
