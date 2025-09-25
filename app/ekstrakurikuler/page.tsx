@@ -7,26 +7,63 @@ import "aos/dist/aos.css";
 
 const ekstrakurikuler = [
   {
-    title: "Pramuka",
+    title: "PRAMUKA",
     description: "Membentuk karakter disiplin, mandiri, dan kepemimpinan.",
     image: "/images/ekskul/pramuka.png",
   },
   {
-    title: "Paskibra",
+    title: "PASKIBRA",
     description: "Melatih kedisiplinan, kekompakan, dan cinta tanah air.",
     image: "/images/ekskul/paskibra.png",
   },
   {
-    title: "KIR (Karya Ilmiah Remaja)",
+    title: "PMR(Palang Merah Remaja",
     description: "Wadah bagi siswa yang gemar meneliti dan menulis karya ilmiah.",
     image: "/images/ekskul/kir.png",
   },
   {
-    title: "Basket",
+    title: "SMARCHING",
     description:
       "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
     image: "/images/ekskul/basket.png",
   },
+  {
+    title: "SMANTECH",
+    description:
+      "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
+    image: "/images/ekskul/basket.png",
+  },
+  {
+    title: "KRISAN",
+    description:
+      "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
+    image: "/images/ekskul/basket.png",
+  },
+  {
+    title: "JOOHOO",
+    description:
+      "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
+    image: "/images/ekskul/basket.png",
+  },
+  {
+    title: "KARATE",
+    description:
+      "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
+    image: "/images/ekskul/basket.png",
+  },
+  {
+    title: "PADUAN SUARA",
+    description:
+      "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
+    image: "/images/ekskul/basket.png",
+  },
+  {
+    title: "SOFTBALL",
+    description:
+      "Ekstrakurikuler olahraga untuk mengembangkan bakat dan kerjasama tim.",
+    image: "/images/ekskul/basket.png",
+  },
+  
 ];
 
 export default function Ekstrakurikuler() {
